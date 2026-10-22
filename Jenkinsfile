@@ -3,14 +3,14 @@ pipeline {
     stages {
         stage('Pruebas Paralelas') {
             parallel {
-                stage('Chrome') {
+                stage('API Tests') {
                     steps {
-                        bat 'npx playwright test --project=chromium'
+                        bat 'npx playwright test --project=apiProject'
                     }
                 }
-                stage('Firefox') {
+                stage('UI Tests') {
                     steps {
-                        bat 'npx playwright test --project=firefox'
+                        bat 'npx playwright test --project=chromeProject'
                     }
                 }
             }
